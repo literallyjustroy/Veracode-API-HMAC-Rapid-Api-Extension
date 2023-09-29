@@ -1,0 +1,2 @@
+# Veracode HMAC Authorization
+
