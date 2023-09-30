@@ -6,15 +6,15 @@ const requestVersion = "vcode_request_version_1";
 const nonceSize = 16;
 
 const URL_HOSTNAME_PATTERN = /https?:\/\/([A-Za-z_0-9.-]+).*/;
-const URL_PATH_PATTERN = /.+?\:\/\/.+?(\/.+?)(?:#|\?|$)/;
+const URL_PATH_AND_PARAMS_PATTERN = /.+?\:\/\/.+?(\/.+?)(?:#|$)/;
 
 function getHostname(url) {
     var result = url.match(URL_HOSTNAME_PATTERN);
     return result && result.length > 1 ? result[1] : '';
 }
 
-function getPath(url) {
-    var result = url.match(URL_PATH_PATTERN);
+function getPathAndQueryParams(url) {
+    var result = url.match(URL_PATH_AND_PARAMS_PATTERN);
     return result && result.length > 1 ? result[1] : '';
 }
 
@@ -45,7 +45,10 @@ function calculateVeracodeAuthHeader(httpMethod, requestUrl, apiId, apiSecret) {
     const formattedId = removePrefixFromApiCredential(apiId);
     const formattedKey = removePrefixFromApiCredential(apiSecret);
 
-    let data = `id=${formattedId}&host=${getHostname(requestUrl)}&url=${getPath(requestUrl)}&method=${httpMethod}`;
+    console.log(getHostname(requestUrl))
+    console.log(getPathAndQueryParams(requestUrl))
+
+    let data = `id=${formattedId}&host=${getHostname(requestUrl)}&url=${getPathAndQueryParams(requestUrl)}&method=${httpMethod}`;
     let dateStamp = Date.now().toString();
     let nonceBytes = newNonce();
     let dataSignature = calculateDataSignature(formattedKey, nonceBytes, dateStamp, data);
