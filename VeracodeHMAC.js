@@ -60,7 +60,7 @@ VeracodeHMAC.inputs = [
 
 VeracodeHMAC.identifier = "com.veracode.PawExtensions.VeracodeHMAC";
 
-VeracodeHMAC.title = "Veracode HMAC Authorization Dynamic Value";
+VeracodeHMAC.title = "Veracode HMAC Authorization";
 
 VeracodeHMAC.help = "https://luckymarmot.com/paw/doc/"; // TODO update docs
 
