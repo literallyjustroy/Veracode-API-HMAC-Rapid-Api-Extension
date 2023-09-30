@@ -59,13 +59,13 @@ var VeracodeHMAC = function () {
 
 VeracodeHMAC.inputs = [
   InputField("veracodeCredsProfile", "Profile Environment Variable", "EnvironmentVariable", { persisted: true }),
-  InputField("veracodeCredsFile", "Veracode Credentials File", "String", { persisted: true, defaultValue: "{File}", placeholder: "Add a file input for the Veracode credentials file" }),
+  InputField("veracodeCredsFile", "Veracode Credentials File", "String", { persisted: true, placeholder: "Add a file input for the Veracode credentials file.." }),
 ];
 
 VeracodeHMAC.identifier = "com.veracode.PawExtensions.VeracodeHMAC";
 
 VeracodeHMAC.title = "Veracode HMAC Authorization Dynamic Value";
 
-VeracodeHMAC.help = "https://luckymarmot.com/paw/doc/";
+VeracodeHMAC.help = "https://luckymarmot.com/paw/doc/"; // TODO update docs
 
 registerDynamicValueClass(VeracodeHMAC);
