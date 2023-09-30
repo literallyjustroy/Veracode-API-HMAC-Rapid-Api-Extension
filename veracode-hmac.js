@@ -1,10 +1,6 @@
 // crypto-js 4.1.1 https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
 var CryptoJS = require('crypto-js.min.js');
 
-/* set Veracode API credentials in api_id and api_key in environment*/
-const id = "" // TODO get these from config
-const key = "" // TODO get these from config
-
 const authorizationScheme = 'VERACODE-HMAC-SHA-256';
 const requestVersion = "vcode_request_version_1";
 const nonceSize = 16;
@@ -45,10 +41,9 @@ function removePrefixFromApiCredential(input) {
     return input.split('-').at(-1);
 }
 
-function calculateVeracodeAuthHeader(httpMethod, requestUrl) {
-    console.log('ABC we made it');
-    const formattedId = removePrefixFromApiCredential(id);
-    const formattedKey = removePrefixFromApiCredential(key);
+function calculateVeracodeAuthHeader(httpMethod, requestUrl, apiId, apiSecret) {
+    const formattedId = removePrefixFromApiCredential(apiId);
+    const formattedKey = removePrefixFromApiCredential(apiSecret);
 
     let data = `id=${formattedId}&host=${getHostname(requestUrl)}&url=${getPath(requestUrl)}&method=${httpMethod}`;
     let dateStamp = Date.now().toString();
