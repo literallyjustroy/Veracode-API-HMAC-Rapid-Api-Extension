@@ -48,10 +48,6 @@ var VeracodeHMAC = function () {
     return hmac.calculateVeracodeAuthHeader(request.method, request.url, api_id, api_secret);
   }
 
-  this.title = function (context) {
-    return "Veracode HMAC Authorization";
-  }
-
   this.text = function (context) {
     return this.getProfile();
   }
