@@ -44,11 +44,10 @@ function removePrefixFromApiCredential(input) {
 function calculateVeracodeAuthHeader(httpMethod, requestUrl, apiId, apiSecret) {
     const formattedId = removePrefixFromApiCredential(apiId);
     const formattedKey = removePrefixFromApiCredential(apiSecret);
+    const hostname = getHostname(requestUrl);
+    const pathAndParams = getPathAndQueryParams(requestUrl);
 
-    console.log(getHostname(requestUrl))
-    console.log(getPathAndQueryParams(requestUrl))
-
-    let data = `id=${formattedId}&host=${getHostname(requestUrl)}&url=${getPathAndQueryParams(requestUrl)}&method=${httpMethod}`;
+    let data = `id=${formattedId}&host=${hostname}&url=${pathAndParams}&method=${httpMethod}`;
     let dateStamp = Date.now().toString();
     let nonceBytes = newNonce();
     let dataSignature = calculateDataSignature(formattedKey, nonceBytes, dateStamp, data);
