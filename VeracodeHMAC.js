@@ -10,7 +10,7 @@ var VeracodeHMAC = function () {
       return "default";
     }
 
-    return this.veracodeCredsProfile === undefined ? "default" : this.veracodeCredsProfile.getCurrentValue();
+    return this.veracodeCredsProfile === undefined ? "default" : this.veracodeCredsProfile;
   }
 
   this.evaluate = function (context) {
@@ -54,8 +54,8 @@ var VeracodeHMAC = function () {
 }
 
 VeracodeHMAC.inputs = [
-  InputField("veracodeCredsProfile", "Profile Environment Variable", "EnvironmentVariable", { persisted: true }),
   InputField("veracodeCredsFile", "Veracode Credentials File", "String", { persisted: true, placeholder: "Add a file input for the Veracode credentials file.." }),
+  InputField("veracodeCredsProfile", "Profile", "String", { persisted: true, placeholder: "Enter the name of one of the profiles in the credentials file" })
 ];
 
 VeracodeHMAC.identifier = "com.veracode.PawExtensions.VeracodeHMAC";
