@@ -6,10 +6,6 @@ const ini = require('./ini.js');
 var VeracodeHMAC = function () {
 
   this.getProfile = function () {
-    if (this.veracodeCredsProfile === undefined) {
-      return "default";
-    }
-
     return this.veracodeCredsProfile === undefined ? "default" : this.veracodeCredsProfile;
   }
 
