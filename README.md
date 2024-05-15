@@ -1,4 +1,4 @@
-# Veracode HMAC Authorization Dynamic Value Extension
+# Veracode API HMAC Rapid Api Extension
 
 An extension for the RapidApi (Paw) REST Client to authenticate into the Veracode REST APIs using HMAC.
 
