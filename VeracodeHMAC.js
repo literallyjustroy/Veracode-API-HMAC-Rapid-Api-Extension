@@ -58,6 +58,6 @@ VeracodeHMAC.identifier = "com.veracode.PawExtensions.VeracodeHMAC";
 
 VeracodeHMAC.title = "Veracode HMAC Authorization";
 
-VeracodeHMAC.help = "https://luckymarmot.com/paw/doc/"; // TODO update docs
+VeracodeHMAC.help = "https://github.com/literallyjustroy/Veracode-API-HMAC-Rapid-Api-Extension";
 
 registerDynamicValueClass(VeracodeHMAC);
